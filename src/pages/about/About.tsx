@@ -16,7 +16,7 @@ const About = () => {
         y: -100,
       }}
     >
-      <div className="flex max-w-5xl flex-col gap-2 px-10 md:flex-row md:gap-10 lg:px-20">
+      <div className="flex w-full max-w-7xl flex-col gap-2 px-10 md:flex-row md:gap-10 lg:px-20">
         <h1 className="font-display text-h2 font-medium text-text-500 md:text-h1">
           about.
         </h1>

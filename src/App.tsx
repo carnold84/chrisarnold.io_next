@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { createPortal } from "react-dom";
 import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 
-import About from "./pages/about";
-import Code from "./pages/code";
-import Design from "./pages/design";
-import Home from "./pages/home";
+const About = lazy(() => import("./pages/about"));
+const Code = lazy(() => import("./pages/code"));
+const Design = lazy(() => import("./pages/design"));
+const Home = lazy(() => import("./pages/home"));
 
 const App = () => {
   const location = useLocation();
@@ -95,6 +95,7 @@ const App = () => {
             <Route path="about" element={<About />} />
             <Route path="code" element={<Code />} />
             <Route path="design" element={<Design />} />
+            <Route path="design/:id" element={<Design />} />
             <Route path="*" element={<div>Not found</div>} />
           </Routes>
         </AnimatePresence>
