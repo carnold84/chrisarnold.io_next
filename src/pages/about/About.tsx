@@ -1,5 +1,38 @@
 import { motion } from "framer-motion";
 
+const experience = [
+  {
+    duration: "2021 - present",
+    employer: "capital preferences",
+    title: "senior front-end developer",
+  },
+  {
+    duration: "2016 - 2021",
+    employer: "telstra",
+    title: "ui engineer",
+  },
+  {
+    duration: "2014 - 2016",
+    employer: "oregan networks",
+    title: "ui developer",
+  },
+  {
+    duration: "2011 - 2014",
+    employer: "rare",
+    title: "front-end developer",
+  },
+  {
+    duration: "2008 - 2011",
+    employer: "motim",
+    title: "interaction designer",
+  },
+  {
+    duration: "2007 - 2008",
+    employer: "hit lab",
+    title: "interaction designer",
+  },
+];
+
 const About = () => {
   return (
     <motion.div
@@ -8,7 +41,7 @@ const About = () => {
         transition: { duration: 0.7, ease: "easeOut" },
         y: 0,
       }}
-      className="mt-10 flex h-full w-full justify-center"
+      className="flex h-full w-full flex-col items-center px-10"
       initial={{ opacity: 0, y: -100 }}
       exit={{
         opacity: 0,
@@ -16,39 +49,47 @@ const About = () => {
         y: -100,
       }}
     >
-      <div className="flex w-full max-w-7xl flex-col gap-2 px-10 md:flex-row md:gap-10 lg:px-20">
-        <h1 className="font-display text-h2 font-medium text-text-500 md:text-h1">
-          about.
-        </h1>
-        <div className="md:mt-5">
-          <p className="mb-3 font-body text-body text-text-500">
-            I started out getting a degree in graphic design (Bachelor of Design
-            - Visual Communication Design) in 2006, but I have always been
-            fascinated by technology, computers and, particularly, the internet.
-          </p>
-          <p className="mb-3 font-body text-body text-text-500">
-            After completing my degree I got a job developing interactive
-            medical animations in Adobe Flash. From there I taught myself
-            Actionscript 3.0 and moved on to developing more complex
-            applications including early augmented reality in the browser. I
-            taught myself HTML, CSS and JQuery.
-          </p>
-          <p className="mb-3 font-body text-body text-text-500">
-            In 2011 I moved to Melbourne, Australia and started working as a
-            front-end developer for a small agency building websites and
-            applications in HTML, CSS, JQuery, and Flash, and integrating with
-            PHP backends.
-          </p>
-          <p className="mb-3 font-body text-body text-text-500">
-            In 2014 I moved to London, UK and started work for a company
-            building set-top boxes for televisions. The UI was built in HTML,
-            CSS, and pure javascript, and ran in customised versions of Chrome
-            (for faster devices) and QT Browser (for slower devices). This was a
-            fascinating project and I learned a vast amount. From achieving
-            complex functionality in plain javascript with no libraries, to
-            integrating with platform apis, and squeezing the maximum
-            performance from relatively under-powered hardware.
-          </p>
+      <div className="flex h-screen w-full items-center justify-center">
+        <div className="mb-20 w-full max-w-3xl">
+          <h1 className="font-display text-h1 font-medium text-text-500 md:text-[100px] xl:text-[140px]">
+            hello.
+          </h1>
+          <h2 className="pl-1 font-display text-h5 text-text-500 md:text-h4">
+            I'm a front-end developer and designer who likes to write clean,
+            elegant, functional code and partner it with clean, beautiful
+            design, and well thought out, user-friendly interfaces.
+          </h2>
+        </div>
+      </div>
+      <div className="flex w-full justify-center">
+        <div className="mb-20 w-full max-w-3xl">
+          <h2 className="mb-8 font-display text-h2 font-medium text-text-500 md:text-h1">
+            experience.
+          </h2>
+          {experience.map(({ duration, employer, title }) => {
+            return (
+              <div className="mb-8">
+                <h3 className="mb-1 text-h4 text-text-500">{title}.</h3>
+                <h4 className="mb-2 text-h4 text-text-500">{employer}.</h4>
+                <p className="text-h5 text-text-400">{duration}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="mb-20 flex w-full justify-center">
+        <div className="mb-20 w-full max-w-3xl">
+          <h2 className="mb-8 font-display text-h2 font-medium text-text-500 md:text-h1">
+            education.
+          </h2>
+          <div>
+            <h3 className="mb-2 text-h4 text-text-500">
+              bachelor of design (visual communication)
+            </h3>
+            <h4 className="mb-2 text-h5 text-text-400">
+              christchurch polytechnic school of art & design, new zealand, 2006
+            </h4>
+          </div>
         </div>
       </div>
     </motion.div>

@@ -7,7 +7,6 @@ import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 const AboutPage = lazy(() => import("./pages/about"));
 const CodePage = lazy(() => import("./pages/code"));
 const DesignPage = lazy(() => import("./pages/design"));
-const HomePage = lazy(() => import("./pages/home"));
 
 const App = () => {
   const location = useLocation();
@@ -17,11 +16,10 @@ const App = () => {
     console.log("onToggleMenu");
     setIsMenuOpen((prev) => !prev);
   };
-  console.log("isMenuOpen", isMenuOpen);
 
   return (
     <div className="flex min-h-screen w-full flex-col">
-      <header className="sticky flex w-full items-center justify-between p-10">
+      <header className="fixed top-0 z-10 flex w-full items-center justify-between p-10">
         <NavLink className="text-text-500" to="/">
           <svg
             width="51"
@@ -40,17 +38,17 @@ const App = () => {
         </NavLink>
         <nav className="hidden md:flex">
           <ul className="flex gap-6">
-            {["home", "about", "code", "design"].map((route) => {
+            {["about", "code", "design"].map((route) => {
               return (
                 <li key={route}>
-                  <NavLink end={true} to={route === "home" ? "/" : route}>
+                  <NavLink end={true} to={route === "about" ? "/" : route}>
                     {({ isActive }) => (
                       <span
                         className={classNames(
-                          "border-b py-1 font-display text-body font-normal text-text-500",
+                          "border-b-2 py-1 font-display text-sm font-normal text-text-500",
                           {
                             "border-transparent": !isActive,
-                            "border-text-500": isActive,
+                            "border-neutral-400": isActive,
                           }
                         )}
                       >
@@ -61,6 +59,14 @@ const App = () => {
                 </li>
               );
             })}
+            <li className="border-l-2 border-neutral-400 pl-5">
+              <a
+                className="py-1 font-display text-sm font-normal text-text-500"
+                href="mailto:chrisarnold.dev@gmail.com"
+              >
+                say hello
+              </a>
+            </li>
           </ul>
         </nav>
         <nav className="flex md:hidden">
@@ -91,8 +97,7 @@ const App = () => {
       <main className="relative grow">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
-            <Route index element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
+            <Route index element={<AboutPage />} />
             <Route path="code" element={<CodePage />} />
             <Route path="design/*" element={<DesignPage />}>
               <Route path=":slug" element={<DesignPage />} />

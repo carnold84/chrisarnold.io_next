@@ -20,7 +20,7 @@ const DesignProject = ({ data }: Props) => {
         transition: { duration: 0.7, ease: "easeIn" },
       }}
     >
-      <div className="flex w-full max-w-7xl flex-col gap-3 p-10 xl:flex-row xl:gap-10 xl:p-20">
+      <div className="mt-20 flex w-full max-w-7xl flex-col gap-3 p-10 xl:flex-row xl:gap-10 xl:p-20">
         <div>
           <Link className="m-0 text-body" to="/design">
             design.

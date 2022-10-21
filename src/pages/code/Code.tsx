@@ -31,7 +31,7 @@ const Code = () => {
         y: -100,
       }}
     >
-      <div className="flex w-full max-w-7xl flex-col gap-3 p-10 lg:flex-row lg:gap-10 xl:p-20">
+      <div className="mt-20 flex w-full max-w-7xl flex-col gap-3 p-10 lg:flex-row lg:gap-10 xl:p-20">
         <h1 className="font-500 font-display text-h1 font-medium text-text-500">
           code.
         </h1>

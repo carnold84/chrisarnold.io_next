@@ -33,7 +33,8 @@ module.exports = {
       display: ["Poppins", "sans-serif"],
     },
     fontSize: {
-      sm: ["0.707rem", "1.75"],
+      xs: ["0.707rem", "1.75"],
+      sm: ["0.8827rem", "1.75"],
       body: ["1rem", "1.75"], // 14px
       h5: ["1.414rem", "1.3"],
       h4: ["1.999rem", "1.3"],
