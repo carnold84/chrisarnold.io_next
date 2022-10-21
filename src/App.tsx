@@ -4,10 +4,10 @@ import { lazy, useState } from "react";
 import { createPortal } from "react-dom";
 import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 
-const About = lazy(() => import("./pages/about"));
-const Code = lazy(() => import("./pages/code"));
-const Design = lazy(() => import("./pages/design"));
-const Home = lazy(() => import("./pages/home"));
+const AboutPage = lazy(() => import("./pages/about"));
+const CodePage = lazy(() => import("./pages/code"));
+const DesignPage = lazy(() => import("./pages/design"));
+const HomePage = lazy(() => import("./pages/home"));
 
 const App = () => {
   const location = useLocation();
@@ -91,11 +91,12 @@ const App = () => {
       <main className="relative grow">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="code" element={<Code />} />
-            <Route path="design" element={<Design />} />
-            <Route path="design/:id" element={<Design />} />
+            <Route index element={<HomePage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="code" element={<CodePage />} />
+            <Route path="design/*" element={<DesignPage />}>
+              <Route path=":slug" element={<DesignPage />} />
+            </Route>
             <Route path="*" element={<div>Not found</div>} />
           </Routes>
         </AnimatePresence>

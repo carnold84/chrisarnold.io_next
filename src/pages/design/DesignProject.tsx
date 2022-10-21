@@ -1,0 +1,41 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Project } from "./Design";
+
+interface Props {
+  data: Project;
+}
+
+const DesignProject = ({ data }: Props) => {
+  return (
+    <motion.div
+      animate={{
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        transition: { duration: 0.7, ease: "easeOut" },
+      }}
+      className="flex h-full w-full justify-center"
+      initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
+      exit={{
+        clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+        transition: { duration: 0.7, ease: "easeIn" },
+      }}
+    >
+      <div className="flex w-full max-w-7xl flex-col gap-3 p-10 xl:flex-row xl:gap-10 xl:p-20">
+        <div>
+          <Link className="m-0 text-body" to="/design">
+            design.
+          </Link>
+          <h1 className="font-500 font-display text-h1 font-medium text-text-500">
+            {data.attributes.title}
+          </h1>
+        </div>
+        <div
+          className="mb-5 w-full text-body text-text-300"
+          dangerouslySetInnerHTML={{ __html: data.html }}
+        />
+      </div>
+    </motion.div>
+  );
+};
+
+export default DesignProject;

@@ -1,7 +1,6 @@
-import styled from "styled-components";
-
-import Github from "../../../icons/Github";
-import Link from "../../../icons/Link";
+import Github from "../../../../icons/Github";
+import Link from "../../../../icons/Link";
+import "./CodeItem.css";
 
 interface Props {
   content: string;
@@ -16,24 +15,6 @@ const paddedNumber = (number: number) => {
   return number < 10 ? `0${number}` : number;
 };
 
-const Wrapper = styled.div`
-  grid-template-areas:
-    "header header header"
-    "content content content"
-    "meta meta meta"
-    "links links links";
-  grid-template-columns: 60px auto;
-  grid-template-rows: auto 1fr auto 40px;
-
-  @media (min-width: 1024px) {
-    grid-template-areas:
-      "number header header header"
-      "number content content content"
-      "number meta meta meta"
-      "number links links links";
-  }
-`;
-
 const CodeItem = ({
   content,
   demoLink,
@@ -43,7 +24,7 @@ const CodeItem = ({
   title,
 }: Props) => {
   return (
-    <Wrapper className="grid w-full border border-neutral-200 bg-neutral-50 p-10">
+    <div className="code_item grid w-full border border-neutral-200 bg-neutral-50 p-10">
       <h3
         className="hidden shrink-0 font-display text-h4 text-text-200 lg:flex"
         style={{ gridArea: "number" }}
@@ -96,7 +77,7 @@ const CodeItem = ({
           </a>
         )}
       </div>
-    </Wrapper>
+    </div>
   );
 };
 
