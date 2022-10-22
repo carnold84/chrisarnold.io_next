@@ -71,7 +71,7 @@ const About = () => {
               <div className="mb-8">
                 <h3 className="mb-1 text-h4 text-text-500">{title}.</h3>
                 <h4 className="mb-2 text-h4 text-text-500">{employer}.</h4>
-                <p className="text-h5 text-text-400">{duration}</p>
+                <p className="text-h5 text-text-200">{duration}</p>
               </div>
             );
           })}

@@ -24,7 +24,7 @@ const CodeItem = ({
   title,
 }: Props) => {
   return (
-    <div className="code_item grid w-full border border-neutral-200 bg-neutral-50 p-10">
+    <div className="code_item grid w-full border border-neutral-300 bg-neutral-50 p-10">
       <h3
         className="hidden shrink-0 font-display text-h4 text-text-200 lg:flex"
         style={{ gridArea: "number" }}
