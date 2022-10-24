@@ -37,13 +37,6 @@ const App = () => {
                 </li>
               );
             })}
-            <li className="border-l-2 border-neutral-400 pl-5">
-              <MainMenuItem
-                element="a"
-                label="say hello."
-                to="mailto:chrisarnold.dev@gmail.com"
-              />
-            </li>
           </ul>
         </nav>
         <nav className="flex md:hidden">

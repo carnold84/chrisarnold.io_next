@@ -13,14 +13,14 @@ const MainMenuItem = ({ element = "navLink", label, to }: Props) => {
       {({ isActive }) => (
         <span
           className={classNames(
-            "border-b-2 py-1 font-display text-sm font-normal text-text-300 hover:text-text-500",
+            "font-display text-sm font-normal hover:text-text-500",
             {
-              "border-transparent": !isActive,
-              "border-neutral-400": isActive,
+              "text-text-300": !isActive,
+              "text-text-500": isActive,
             }
           )}
         >
-          {label}.
+          {label}
         </span>
       )}
     </NavLink>
