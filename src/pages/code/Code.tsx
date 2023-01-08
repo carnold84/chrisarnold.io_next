@@ -23,7 +23,7 @@ const Code = () => {
         transition: { duration: 0.7, ease: "easeOut" },
         y: 0,
       }}
-      className="flex h-full w-full justify-center"
+      className="flex h-full w-full justify-center pt-20 sm:pt-32"
       initial={{ opacity: 0, y: -100 }}
       exit={{
         opacity: 0,
@@ -31,11 +31,11 @@ const Code = () => {
         y: -100,
       }}
     >
-      <div className="mt-20 flex w-full max-w-7xl flex-col gap-3 p-10 lg:flex-row lg:gap-10 xl:p-20">
-        <h1 className="font-500 font-display text-h1 font-medium text-text-500">
+      <div className="flex w-full max-w-3xl flex-col gap-3 lg:max-w-4xl xl:max-w-7xl">
+        <h1 className="font-500 mb-3 text-center font-display text-h2 font-medium text-text-500 sm:text-h1">
           code.
         </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8 lg:mt-5 2xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:mt-5 xl:grid-cols-3">
           {mdFiles.map(({ attributes, html }, i) => {
             return (
               <CodeItem

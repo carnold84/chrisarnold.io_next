@@ -1,6 +1,31 @@
+import { ReactNode } from "react";
 import Github from "../../../../icons/Github";
 import Link from "../../../../icons/Link";
 import "./CodeItem.css";
+
+const paddedNumber = (number: number) => {
+  return number < 10 ? `0${number}` : number;
+};
+
+interface CardLinkProps {
+  children: ReactNode;
+  href: string;
+  icon: ReactNode;
+}
+
+const CardLink = ({ children, href, icon }: CardLinkProps) => {
+  return (
+    <a
+      className="flex items-center justify-center bg-transparent text-body text-text-300 hover:fill-text-500 hover:text-text-500 sm:inline-flex"
+      href={href}
+      rel="noopener"
+      target="_blank"
+    >
+      {icon}
+      <span className="ml-1">{children}</span>
+    </a>
+  );
+};
 
 interface Props {
   content: string;
@@ -10,10 +35,6 @@ interface Props {
   tags?: string;
   title: string;
 }
-
-const paddedNumber = (number: number) => {
-  return number < 10 ? `0${number}` : number;
-};
 
 const CodeItem = ({
   content,
@@ -55,26 +76,14 @@ const CodeItem = ({
         style={{ gridArea: "links" }}
       >
         {repositoryLink && repositoryLink !== "" && (
-          <a
-            className="fill-text-secondary hover:fill-text-primary hover:text-text-primary flex items-center justify-center bg-transparent text-body text-text-400 sm:inline-flex"
-            href={repositoryLink}
-            rel="noopener"
-            target="_blank"
-          >
-            <Github />
-            <span className="ml-1">Code</span>
-          </a>
+          <CardLink href={repositoryLink} icon={<Github />}>
+            Code
+          </CardLink>
         )}
         {demoLink && demoLink !== "" && (
-          <a
-            className="fill-text-secondary hover:fill-text-primary hover:text-text-primary flex items-center justify-center bg-transparent text-body text-text-400 sm:inline-flex"
-            href={demoLink}
-            rel="noopener"
-            target="_blank"
-          >
-            <Link />
-            <span className="ml-1 text-body">View</span>
-          </a>
+          <CardLink href={demoLink} icon={<Link />}>
+            View
+          </CardLink>
         )}
       </div>
     </div>

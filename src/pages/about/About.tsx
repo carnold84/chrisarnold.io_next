@@ -56,7 +56,7 @@ const About = () => {
     experience_7: {
       duration: "2004 - 2006",
       employer: (
-        <h4 className="text-h5 text-text-300">
+        <h4 className="text-body text-text-300 sm:text-h5">
           christchurch polytechnic
           <br />
           school of art & design
@@ -69,15 +69,15 @@ const About = () => {
       isVisible: false,
       ref: createRef(),
       title: (
-        <h3 className="mb-1 text-h4 text-text-500">
+        <h3 className="mb-1 text-h5 text-text-500 sm:text-h4">
           bachelor of design
           <br />
-          (visual communication)
+          <span className="hidden sm:inline">(visual communication)</span>
+          <span className="inline sm:hidden">(vis. comm.)</span>
         </h3>
       ),
     },
   });
-  console.log(experience);
 
   useEffect(() => {
     let options = {
@@ -87,7 +87,6 @@ const About = () => {
     };
 
     let observer = new IntersectionObserver((entries) => {
-      console.log(entries);
       setExperience((prev) => {
         const nextExperience = { ...prev };
         entries.forEach(({ isIntersecting, target }) => {
@@ -111,7 +110,6 @@ const About = () => {
     });
 
     return () => {
-      console.log("CLEAN UP");
       observer.disconnect();
     };
   }, []);
@@ -123,7 +121,7 @@ const About = () => {
         transition: { duration: 0.7, ease: "easeOut" },
         y: 0,
       }}
-      className="flex h-full w-full flex-col items-center px-10"
+      className="flex h-full w-full flex-col items-center"
       initial={{ opacity: 0, y: -100 }}
       exit={{
         opacity: 0,
@@ -131,7 +129,7 @@ const About = () => {
         y: -100,
       }}
     >
-      <div className="flex h-[90vh] w-full items-center justify-center">
+      <div className="flex h-[80vh] w-full items-center justify-center">
         <div className="w-full max-w-3xl">
           <h1 className="text-center font-display text-h1 font-medium text-text-500 md:text-[100px] xl:text-[140px]">
             hello.
@@ -144,12 +142,12 @@ const About = () => {
         </div>
       </div>
       <div className="flex w-full justify-center">
-        <div className="mb-20 w-full max-w-6xl">
+        <div className="w-full max-w-6xl">
           <div className="h-32">
             <Timeline />
           </div>
           <div className="flex flex-col items-center justify-center">
-            <h2 className="font-display text-h2 font-medium text-text-500 md:text-h1">
+            <h2 className="font-display text-h3 font-medium text-text-500 sm:text-h2 md:text-h1">
               experience
             </h2>
             <div className="h-20 border-l-2 border-dashed border-neutral-200"></div>
@@ -175,12 +173,19 @@ const About = () => {
         </div>
       </div>
       <div className="flex w-full justify-center">
-        <div className="mb-20 w-full max-w-6xl">
+        <div className="mb-40 w-full max-w-6xl">
           <div className="flex flex-col items-center justify-center">
-            <h2 className="font-display text-h2 font-medium text-text-500 md:text-h1">
+            <div className="h-40 border-l-2 border-dashed border-neutral-200"></div>
+            <h2 className="font-display text-h3 font-medium text-text-500 sm:text-h2 md:text-h1">
               say hello
             </h2>
-            <div className="h-20 border-l-2 border-dashed border-neutral-200"></div>
+            <div className="mb-2 h-10 border-l-2 border-dashed border-neutral-200 sm:h-20"></div>
+            <a
+              className="text-h5 text-text-400 sm:text-h4"
+              href="mailto:chrisarnold.dev@gmail.com"
+            >
+              chrisarnold.dev@gmail.com
+            </a>
           </div>
         </div>
       </div>

@@ -22,21 +22,24 @@ const DesignHome = ({ projects }: Props) => {
         y: -100,
       }}
     >
-      <div className="mt-20 flex w-full max-w-7xl flex-col gap-3 p-10 lg:flex-row lg:gap-10 xl:p-20">
-        <h1 className="font-500 font-display text-h2 font-medium text-text-500 sm:text-h1">
+      <div className="mt-20 flex w-full max-w-7xl flex-col gap-3 lg:flex-row lg:gap-10">
+        <h1 className="font-500 mb-3 text-center font-display text-h2 font-medium text-text-500 sm:text-h1">
           design.
         </h1>
         <div className="grid grow grid-cols-1 gap-10 md:gap-8 lg:mt-5 xs:grid-cols-2">
-          {projects.map(({ attributes }) => {
-            return (
-              <DesignCard
-                key={attributes.id}
-                thumbnail={attributes.thumbnail}
-                title={attributes.title}
-                to={attributes.path}
-              />
-            );
-          })}
+          {[...projects]
+            .sort((a, b) => a.attributes.order - b.attributes.order)
+            .map(({ attributes }, i) => {
+              return (
+                <DesignCard
+                  key={attributes.id}
+                  number={i + 1}
+                  thumbnail={attributes.thumbnail}
+                  title={attributes.title}
+                  to={attributes.path}
+                />
+              );
+            })}
         </div>
       </div>
     </motion.div>

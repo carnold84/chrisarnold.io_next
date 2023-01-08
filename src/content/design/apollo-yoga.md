@@ -1,6 +1,6 @@
 ---
 id: "apollo-yoga"
-order: 10
+order: 2
 path: "apollo-yoga"
 tags:
   - Test

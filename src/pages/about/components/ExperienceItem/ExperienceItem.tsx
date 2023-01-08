@@ -61,11 +61,15 @@ const ExperienceItem = forwardRef<HTMLDivElement, Props>(
         ref={ref}
       >
         <div className={"flex w-1/2"} style={{ width: "calc(50% + 16px)" }}>
-          <div className="mr-5">{!isOdd && <Timeline />}</div>
+          {!isOdd && (
+            <div className="mr-5">
+              <Timeline />
+            </div>
+          )}
           <div
             className={classNames("flex grow flex-col", {
-              "items-start": !isOdd,
-              "items-end": isOdd,
+              "items-start text-left": !isOdd,
+              "items-end text-right": isOdd,
             })}
           >
             <motion.div
@@ -76,7 +80,9 @@ const ExperienceItem = forwardRef<HTMLDivElement, Props>(
               variants={variants}
             >
               {typeof duration === "string" ? (
-                <p className="mb-1 mt-0 text-h5 text-text-200">{duration}</p>
+                <p className="mb-1 mt-0 text-body text-text-200 sm:text-h5">
+                  {duration}
+                </p>
               ) : (
                 duration
               )}
@@ -89,7 +95,9 @@ const ExperienceItem = forwardRef<HTMLDivElement, Props>(
               variants={variants}
             >
               {typeof title === "string" ? (
-                <h3 className="mb-1 text-h4 text-text-500">{title}</h3>
+                <h3 className="mb-1 text-h5 text-text-500 sm:text-h4">
+                  {title}
+                </h3>
               ) : (
                 title
               )}
@@ -102,13 +110,19 @@ const ExperienceItem = forwardRef<HTMLDivElement, Props>(
               variants={variants}
             >
               {typeof employer === "string" ? (
-                <h4 className="mb-20 text-h5 text-text-300">{employer}</h4>
+                <h4 className="mb-10 text-body text-text-300 sm:mb-20 sm:text-h5">
+                  {employer}
+                </h4>
               ) : (
                 employer
               )}
             </motion.div>
           </div>
-          <div className="ml-5">{isOdd && <Timeline />}</div>
+          {isOdd && (
+            <div className="ml-5">
+              <Timeline />
+            </div>
+          )}
         </div>
       </div>
     );

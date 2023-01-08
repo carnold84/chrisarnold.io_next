@@ -2,6 +2,7 @@ import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 
 interface Props {
+  number: number;
   thumbnail: string;
   title: string;
   to: string;
@@ -9,7 +10,7 @@ interface Props {
 
 const THRESHOLD = 20;
 
-const DesignCard = ({ thumbnail, title, to }: Props) => {
+const DesignCard = ({ number, thumbnail, title, to }: Props) => {
   const controls = useAnimation();
 
   const onMouseMove = (e: any) => {
@@ -60,8 +61,8 @@ const DesignCard = ({ thumbnail, title, to }: Props) => {
           scale: { duration: 3, ease: "linear" },
         }}
       />
-      <h2 className="font-display text-h5 font-normal text-text-500">
-        {title}
+      <h2 className="font-display text-h3 font-normal text-text-500">
+        {number} {title}
       </h2>
     </Link>
   );

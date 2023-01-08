@@ -25,7 +25,7 @@ const App = () => {
         <NavLink className="text-text-500" to="/">
           <Logo />
         </NavLink>
-        <nav className="hidden md:flex">
+        <nav className="flex">
           <ul className="flex gap-6">
             {["about", "code", "design"].map((route) => {
               return (
@@ -39,7 +39,7 @@ const App = () => {
             })}
           </ul>
         </nav>
-        <nav className="flex md:hidden">
+        <nav className="hidden">
           <button onClick={onToggleMenu}>
             <svg
               width="22"
@@ -64,7 +64,7 @@ const App = () => {
           </button>
         </nav>
       </header>
-      <main className="relative grow">
+      <main className="relative grow p-6 sm:p-20">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route index element={<AboutPage />} />
